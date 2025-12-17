@@ -12,10 +12,10 @@
 ;;;============================================================================
 
 (define metadata
-  '((version . "0.1.0")
+  '((version . "0.1.1")
     (schema-version . "1.0")
     (created . "2025-12-15")
-    (updated . "2025-12-15")
+    (updated . "2025-12-17")
     (project . "git-reunify")
     (repo . "github.com/hyperpolymath/git-reunify")))
 
@@ -41,18 +41,23 @@
 
 (define current-position
   '((phase . "v0.1 - Initial Setup and RSR Compliance")
-    (overall-completion . 25)
+    (overall-completion . 35)
 
     (components
      ((rsr-compliance
        ((status . "complete")
         (completion . 100)
-        (notes . "SHA-pinned actions, SPDX headers, multi-platform CI")))
+        (notes . "SHA-pinned actions (v6.0.1), SPDX headers, multi-platform CI")))
+
+      (security
+       ((status . "complete")
+        (completion . 100)
+        (notes . "All workflow SHAs verified, Semgrep SAST, CodeQL v4, Dependabot")))
 
       (documentation
        ((status . "foundation")
-        (completion . 30)
-        (notes . "README exists, META/ECOSYSTEM/STATE.scm added")))
+        (completion . 40)
+        (notes . "README exists, META/ECOSYSTEM/STATE.scm maintained")))
 
       (testing
        ((status . "minimal")
@@ -68,7 +73,11 @@
      ("RSR-compliant CI/CD pipeline"
       "Multi-platform mirroring (GitHub, GitLab, Bitbucket)"
       "SPDX license headers on all files"
-      "SHA-pinned GitHub Actions"))))
+      "SHA-pinned GitHub Actions (verified v6.0.1)"
+      "Semgrep SAST with SARIF upload"
+      "CodeQL v4.31.8 integration"
+      "Dependabot for all ecosystems"
+      "Workflow security linter"))))
 
 ;;;============================================================================
 ;;; ROUTE TO MVP
@@ -151,6 +160,16 @@
 
 (define session-history
   '((snapshots
+     ((date . "2025-12-17")
+      (session . "security-audit-and-roadmap-update")
+      (accomplishments
+       ("Verified all GitHub Action SHA pins are valid and up-to-date"
+        "Updated workflow-linter.yml to use actions/checkout v6.0.1"
+        "Added SPDX header to dependabot.yml"
+        "Confirmed CodeQL v4.31.8 and Semgrep SAST are properly configured"
+        "Updated STATE.scm with current roadmap"))
+      (notes . "Security audit completed - all SHA pins verified correct"))
+
      ((date . "2025-12-15")
       (session . "initial-state-creation")
       (accomplishments
@@ -184,11 +203,12 @@
 
 (define state-summary
   '((project . "git-reunify")
-    (version . "0.1.0")
-    (overall-completion . 25)
+    (version . "0.1.1")
+    (overall-completion . 35)
     (next-milestone . "v0.2 - Core Functionality")
     (critical-blockers . 0)
     (high-priority-issues . 0)
-    (updated . "2025-12-15")))
+    (security-status . "verified")
+    (updated . "2025-12-17")))
 
 ;;; End of STATE.scm
